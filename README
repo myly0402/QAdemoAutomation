@@ -1,0 +1,28 @@
+# Automation Framework
+
+This is a UI automation testing framework using Selenium, TestNG, and Cucumber.
+
+## Prerequisites
+
+- Java 8+
+- Maven 3.6+
+- ChromeDriver (or any WebDriver binary)
+
+## Setup
+
+1. **Clone the Repository**:
+   ```bash
+   git clone git@github.com:khanhbkqt/lms-auto.git
+   cd automation-framework
+
+2. **Install Dependencies**:
+    mvn clean install
+
+3. **Create properties file**:
+    create ``config.properties`` file in ``src/test/resources/``
+    ``` browser=chrome
+        webdriver.chrome.driver=path/to/chromedriver
+
+4. **Running Tests**:
+    Run tests using Maven:
+    mvn test
