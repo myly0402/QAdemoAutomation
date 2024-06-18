@@ -31,11 +31,18 @@ public class UploadAndDownload extends PageObject {
     public WebElement selectAFileString;
 
     @Lazy
-    @FindBy (id = "uploadFile")
+    @FindBy (xpath = "//input[@id='uploadFile']")
     public WebElement chooseFileBtn;
+
+
+    @Lazy
+    @FindBy (id = "uploadedFilePath")
+    public WebElement uploadFilePath;  
+
 
     public String downloadDir = System.getProperty("user.home") + "/Downloads";
     public String downloadedFileName = "sampleFile.jpeg"; // Replace with the actual file name
+    public String uploadFileName = "uploadFile1.png";
 
 
     public void verifyTheDisplayOfTheUploadAndDownLoadPage(){

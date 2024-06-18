@@ -4,7 +4,6 @@ Background:
 Given I go to the Elements page
 And I click on the "Web Tables" submenu
 
-
 @Testing @TC01 
 Scenario: Verify the display of the Web Tables screen
 Then I verify the display of the Web Tables view
