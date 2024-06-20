@@ -1,4 +1,4 @@
-package pages;
+package pages.WebTables;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -9,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
 import lazy.Lazy;
+import pages.PageObject;
 
 public class WebTablesPage extends PageObject {
     

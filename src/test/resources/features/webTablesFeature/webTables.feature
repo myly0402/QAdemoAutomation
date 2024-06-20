@@ -1,7 +1,7 @@
 Feature: Web tables submenu
 
 Background: 
-Given I go to the Elements page
+Given I go to the "elements" page
 And I click on the "Web Tables" submenu
 
 @Testing @TC01 

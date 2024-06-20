@@ -1,4 +1,4 @@
-package steps;
+package steps.WebTablesSteps;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import org.testng.Assert;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import pages.WebTablesPage;
+import pages.WebTables.WebTablesPage;
 import utils.WebDriverManager;
 
 public class WebTablesStep {

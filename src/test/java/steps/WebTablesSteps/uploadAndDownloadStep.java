@@ -1,18 +1,15 @@
-package steps;
+package steps.WebTablesSteps;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-
-import org.openqa.selenium.interactions.Actions;
 import org.sikuli.script.FindFailed;
-
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import pages.UploadAndDownload;
+import pages.WebTables.UploadAndDownload;
 import utils.WebDriverManager;
 import org.testng.Assert;
 
@@ -69,28 +66,15 @@ public class uploadAndDownloadStep {
         uploadAndDownload.chooseFileBtn.click();
     }
 
-    @When("I select a file from my computer")
-    public void I_select_a_file_from_my_computer() throws AWTException {
-        robot = new Robot();
-        robot.setAutoDelay(1000);
-
-        Actions action = new Actions(WebDriverManager.getDriver());
-        action.sendKeys("uploadFile");
-        robot.keyPress(KeyEvent.VK_ENTER);
-       
-    }
+   
 
     @Then("I verify the file is upload successfully")
     public void I_verify_the_file_is_upload_successfully() {
         uploadAndDownload.waitElemtToVisible(uploadAndDownload.uploadFilePath,5);
         Assert.assertEquals(uploadAndDownload.uploadFilePath.getText(),"C:\\fakepath\\uploadFile1.png");
-
-        
+   
        
     }
-
-
-
 
     @When("I tap on the Choose file button and select a file from my computer")
     public void I_tap_on_the_Choose_file_button_and_select_a_file_from_my_computer() throws AWTException {

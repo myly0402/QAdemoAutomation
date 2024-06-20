@@ -1,7 +1,7 @@
 Feature: Upload and download
 
 Background: 
-Given I go to the Elements page
+Given I go to the "elements" page
 And I click on the "Upload and Download" submenu
 
 @Testing @TC05

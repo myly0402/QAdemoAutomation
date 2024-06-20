@@ -1,4 +1,4 @@
-package pages;
+package pages.WebTables;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,6 +8,7 @@ import java.util.Random;
 
 import org.testng.Assert;
 import lazy.Lazy;
+import pages.PageObject;
 
 public class UploadAndDownload extends PageObject {
 

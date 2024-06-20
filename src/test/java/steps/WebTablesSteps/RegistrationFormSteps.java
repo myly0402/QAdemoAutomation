@@ -1,4 +1,4 @@
-package steps;
+package steps.WebTablesSteps;
 
 import java.time.Duration;
 
@@ -8,11 +8,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import io.cucumber.java.en.Then;
-import pages.RegistrationForm;
+import pages.WebTables.RegistrationForm;
 import utils.WebDriverManager;
 
 public class RegistrationFormSteps {
-    
+
 
      @Then("I verify the display of the Registration Form")
     public void I_verify_the_display_of_the_Registration_Form() {
