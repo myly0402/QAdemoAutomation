@@ -22,7 +22,7 @@ public class HomePageSteps {
     @Then("I click on the {string} submenu")
     public void I_click_on_the_submenu(String buttonCaption) {
         HomePage homePage = new HomePage(driver);
-        homePage.clickButton(buttonCaption);
+        homePage.clickMenuButton(buttonCaption);
     }
 
 }

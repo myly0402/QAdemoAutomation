@@ -1,5 +1,7 @@
 package pages.WebTables;
+
 import java.util.List;
+import java.util.Properties;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,9 +12,9 @@ import org.testng.Assert;
 
 import lazy.Lazy;
 import pages.PageObject;
+import utils.PropertiesLoader;
 
 public class WebTablesPage extends PageObject {
-    
 
     @Lazy
     @FindBy(xpath = "//h1[contains(text(),'Web Tables')]")
@@ -49,7 +51,7 @@ public class WebTablesPage extends PageObject {
     public WebElement previousButton;
     @Lazy
     @FindBy(xpath = "//span[@class='-pageInfo']")
-    public  WebElement pageField;
+    public WebElement pageField;
     @Lazy
     @FindBy(xpath = "//div[@class = '-pageJump']")
     public WebElement pageNumber;
@@ -66,15 +68,14 @@ public class WebTablesPage extends PageObject {
     @FindBy(xpath = "//div[contains(text(),'No rows found')]")
     public WebElement noRowsFoundMessage;
 
-    
-
     public WebTablesPage(WebDriver driver) {
         super(driver);
         this.getRecordRows();
     }
 
     public List<WebElement> getRecordRows() {
-        return driver.findElements(By.xpath("//div[(contains(@class, 'rt-tr -even') or contains(@class, 'rt-tr -odd')) and .//div[contains(@class, 'rt-td') and .//div[contains(@class, 'action-buttons')]]]"));
+        return driver.findElements(By.xpath(
+                "//div[(contains(@class, 'rt-tr -even') or contains(@class, 'rt-tr -odd')) and .//div[contains(@class, 'rt-td') and .//div[contains(@class, 'action-buttons')]]]"));
     }
 
     public String getFirstName(WebElement row) {
@@ -82,7 +83,6 @@ public class WebTablesPage extends PageObject {
         String firstName = fields.get(0).getText();
         return firstName;
     }
-
 
     public void verifyWebElementsDisplayed() {
         Assert.assertTrue(webTablesHeader.isDisplayed(), "Web Tables header is displayed");
@@ -98,10 +98,21 @@ public class WebTablesPage extends PageObject {
 
     }
 
-    public void clickAddBtn() {
-        addBtn.click();
+    // Check a new user with information from the properties file is already added
+    // or not)
+    public boolean checkNewUserIsAdded(List<WebElement> userList) {
+
+        boolean newRecordAvailable = false;
+        Properties properties = PropertiesLoader.loadProperties("config.properties");
+
+        for (WebElement row : userList) {
+            String firstName = getFirstName(row);
+            if (firstName.equals(properties.getProperty("firstName"))) {
+                newRecordAvailable = true;
+            }
+        }
+        return newRecordAvailable;
 
     }
-   
-    
+
 }

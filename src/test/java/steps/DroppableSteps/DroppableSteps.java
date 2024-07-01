@@ -1,9 +1,7 @@
 package steps.DroppableSteps;
 
-import org.apache.tools.ant.taskdefs.Sleep;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import io.cucumber.java.en.Then;
@@ -71,7 +69,6 @@ public class DroppableSteps {
         Assert.assertEquals(droppable.preventPropogationNotGreedyInnerDropContainer.getText(),
                 "Inner droppable (not greedy)");
         Assert.assertEquals(droppable.preventPropogationnotGreedyOuterDropContainer.getText(), "Dropped!");
-
     }
 
     @When("I drag the Drag me container to the Outer droppable - not greedy container")
@@ -144,5 +141,7 @@ public class DroppableSteps {
         Assert.assertEquals(droppable.preventPropogationGreedyOuterDropContainer.getText(),"Dropped!");
         Assert.assertEquals(droppable.preventPropogationGreedyInnerDropContainer.getText(),"Inner droppable (greedy)");
     }
+
+   
 
 }
